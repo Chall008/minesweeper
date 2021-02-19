@@ -10,3 +10,35 @@ body {
   margin: 0;
   min-height: 100%;
 }
+header {
+  display: flex;
+  justify-content: center;
+}
+section {
+  display: flex;
+  justify-content: center;
+  border: double;
+  padding: 1em;
+}
+section ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  background-color: rgb(160, 160, 160);
+}
+ul li {
+  height: 24px;
+  width: 24px;
+  border: 1px solid;
+  list-style: none;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+footer {
+  display: flex;
+  justify-content: center;
+}
