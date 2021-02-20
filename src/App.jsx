@@ -12,6 +12,7 @@ export class App extends Component {
       ['', '', '', '', '', '', '', ''],
       ['', '', '', '', '', '', '', ''],
     ],
+    state: '',
     // mines: 10,
     // difficulty: 0,
   }
@@ -45,10 +46,17 @@ export class App extends Component {
 
   render() {
     // const minesLeft = this.state.mines === `Mines Left: ${this.state.mines}`
+    let header = 'Minesweeper'
+    if (this.state.state === 'lost') {
+      header = 'You hit a bomb!'
+    }
+    if (this.state.state === 'won') {
+      header = 'CONGRATS! YOU HAVE WON!!!'
+    }
     return (
       <div>
         <header>
-          <h1>Minesweeper</h1>
+          <h1>{header}</h1>
         </header>
         <section>
           <ul>
@@ -71,7 +79,7 @@ export class App extends Component {
         <footer>
           <button onClick={() => this.handleNewGame()}>New Game</button>
           <select>
-            <option>Difficulty</option>
+            <option>--Difficulty--</option>
             <option>Easy</option>
             <option>Intermediate</option>
             <option>Hard</option>
