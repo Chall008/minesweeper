@@ -19,20 +19,22 @@ section {
   justify-content: center;
   border: double;
   padding: 1em;
-  background-color: rgb(230, 209, 209);
+  background-color: rgb(248, 94, 94);
+  align-items: center;
 }
 section ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
-  background-color: rgb(160, 160, 160);
+  background-color: rgb(175, 175, 175);
 }
 ul li {
-  height: 24px;
-  width: 24px;
+  height: 18px;
+  width: 18px;
   border: 1px solid;
   list-style: none;
+  text-align: center;
 }
 ul,
 li {
