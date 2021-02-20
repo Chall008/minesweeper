@@ -15,13 +15,13 @@ export class App extends Component {
     // mines: 10,
     // difficulty: 0,
   }
-  handleClickCell = async (row, column, event) => {
+  handleClickCell = async (row, col, event) => {
     event.preventDefault()
 
     const url = `https://minesweeper-api.herokuapp.com/games/${this.state.id}/${
       event.type === 'click' ? 'check' : 'flag'
     }`
-    const body = { row, column }
+    const body = { row, col }
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
