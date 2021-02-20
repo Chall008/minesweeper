@@ -48,11 +48,12 @@ export class App extends Component {
     // const minesLeft = this.state.mines === `Mines Left: ${this.state.mines}`
     let header = 'Minesweeper'
     if (this.state.state === 'lost') {
-      header = 'You hit a bomb!'
+      header = 'Oh, no... You hit a bomb!'
     }
     if (this.state.state === 'won') {
       header = 'CONGRATS! YOU HAVE WON!!!'
     }
+
     return (
       <div>
         <header>
