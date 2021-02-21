@@ -62,22 +62,19 @@ header {
 section {
   display: flex;
   justify-content: center;
-  // padding: 0;
-  // margin: 0;
-  // background-color: rgb(2, 167, 243);
   align-items: center;
 }
 section ul {
   display: grid;
-  border: double rgb(148, 37, 3);
-  // justify-content: center;
-  // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  // grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  border: double rgb(0, 0, 0);
   grid-template: repeat(8, 1fr) / repeat(8, 1fr);
-  // flex-wrap: wrap;
-  // align-items: center;
 }
 section li {
+  width: 300px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: relative;
+  box-shadow: inset 0px 0px 16px 0px #2e2e2e;
   background-color: grey;
   display: flex;
   align-items: center;
@@ -86,12 +83,10 @@ section li {
 }
 
 ul li {
-  // display: flex;
   height: 32px;
   width: 32px;
   border: 1px solid;
   list-style: none;
-  // justify-content: center;
   text-align: center;
 }
 

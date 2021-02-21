@@ -43,6 +43,17 @@ export class App extends Component {
     const game = await response.json()
     this.setState(game)
   }
+  turnCellIntoPic = (cell, rowIndex, columnIndex) => {
+    return (
+      <li
+        onClick={e => this.handleClickCell(rowIndex, columnIndex, e)}
+        onContextMenu={e => this.handleClickCell(rowIndex, columnIndex, e)}
+        key={columnIndex}
+      >
+        {cell}
+      </li>
+    )
+  }
 
   render() {
     // const minesLeft = this.state.mines === `Mines Left: ${this.state.mines}`
@@ -53,28 +64,28 @@ export class App extends Component {
     if (this.state.state === 'won') {
       header = 'YOU WIN!!!'
     }
-    // switch (cellValue){
-    //case '_':
-    //'revealed' = background color light grey
-    //break;
-    //case 'F':
-    //return 'fas fa-flag' color orange,
-    //break;
-    //case '*':
-    //return 'fas fa-bomb'
-    //break;
-    //case '@':
-    //return 'far fa-flag'
-    //break;
-    //default:
-    //}
+    // switch (cell){
+    // case '_':
+    // return
+    // break;
+    // case 'F':
+    // return 'fas fa-flag' color orange,
+    // break;
+    // case '*':
+    // return 'fas fa-bomb'
+    // break;
+    // case '@':
+    // return 'far fa-flag'
+    // break;
+    // default:
+    // }
 
     return (
       <div>
-        <div class="bg"></div>
-        <div class="bg bg2"></div>
-        <div class="bg bg3"></div>
-        <div class="content">
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <div className="content">
           <head>
             <script
               src="https://kit.fontawesome.com/956624ffd4.js"
@@ -87,19 +98,9 @@ export class App extends Component {
           <section>
             <ul>
               {this.state.board.map((row, rowIndex) =>
-                row.map((cell, columnIndex) => (
-                  <li
-                    onClick={e =>
-                      this.handleClickCell(rowIndex, columnIndex, e)
-                    }
-                    onContextMenu={e =>
-                      this.handleClickCell(rowIndex, columnIndex, e)
-                    }
-                    key={columnIndex}
-                  >
-                    {cell}
-                  </li>
-                ))
+                row.map((cell, columnIndex) =>
+                  this.turnCellIntoPic(cell, rowIndex, columnIndex)
+                )
               )}
             </ul>
           </section>
@@ -110,7 +111,7 @@ export class App extends Component {
               <option>--Difficulty--</option>
               <option>Easy</option>
               <option>Intermediate</option>
-              <option>Hard</option>
+              <option>Expert</option>
             </select>
           </footer>
         </div>
