@@ -48,44 +48,72 @@ export class App extends Component {
     // const minesLeft = this.state.mines === `Mines Left: ${this.state.mines}`
     let header = 'Minesweeper'
     if (this.state.state === 'lost') {
-      header = 'Oh, no... You hit a bomb!'
+      header = 'YOU HIT A BOMB!'
     }
     if (this.state.state === 'won') {
-      header = 'CONGRATS! YOU HAVE WON!!!'
+      header = 'YOU WIN!!!'
     }
+    // switch (cellValue){
+    //case '_':
+    //'revealed' = background color light grey
+    //break;
+    //case 'F':
+    //return 'fas fa-flag' color orange,
+    //break;
+    //case '*':
+    //return 'fas fa-bomb'
+    //break;
+    //case '@':
+    //return 'far fa-flag'
+    //break;
+    //default:
+    //}
 
     return (
       <div>
-        <header>
-          <h1>{header}</h1>
-        </header>
-        <section>
-          <ul>
-            {this.state.board.map((row, rowIndex) =>
-              row.map((cell, columnIndex) => (
-                <li
-                  onClick={e => this.handleClickCell(rowIndex, columnIndex, e)}
-                  onContextMenu={e =>
-                    this.handleClickCell(rowIndex, columnIndex, e)
-                  }
-                  key={columnIndex}
-                >
-                  {cell}
-                </li>
-              ))
-            )}
-          </ul>
-        </section>
-        {/* <div> {minesLeft} </div> */}
-        <footer>
-          <button onClick={() => this.handleNewGame()}>New Game</button>
-          <select>
-            <option>--Difficulty--</option>
-            <option>Easy</option>
-            <option>Intermediate</option>
-            <option>Hard</option>
-          </select>
-        </footer>
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        <div class="content">
+          <head>
+            <script
+              src="https://kit.fontawesome.com/956624ffd4.js"
+              crossorigin="anonymous"
+            ></script>
+          </head>
+          <header>
+            <h1>{header}</h1>
+          </header>
+          <section>
+            <ul>
+              {this.state.board.map((row, rowIndex) =>
+                row.map((cell, columnIndex) => (
+                  <li
+                    onClick={e =>
+                      this.handleClickCell(rowIndex, columnIndex, e)
+                    }
+                    onContextMenu={e =>
+                      this.handleClickCell(rowIndex, columnIndex, e)
+                    }
+                    key={columnIndex}
+                  >
+                    {cell}
+                  </li>
+                ))
+              )}
+            </ul>
+          </section>
+          {/* <div> {minesLeft} </div> */}
+          <footer>
+            <button onClick={() => this.handleNewGame()}>New Game</button>
+            <select>
+              <option>--Difficulty--</option>
+              <option>Easy</option>
+              <option>Intermediate</option>
+              <option>Hard</option>
+            </select>
+          </footer>
+        </div>
       </div>
     )
   }
