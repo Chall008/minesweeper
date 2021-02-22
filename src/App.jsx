@@ -44,13 +44,31 @@ export class App extends Component {
     this.setState(game)
   }
   turnCellIntoPic = (cell, rowIndex, columnIndex) => {
+    let newIcon = ''
+    let iconColor = ''
+    switch (cell) {
+      case '_':
+        newIcon = ''
+        break
+      case 'F':
+        newIcon = 'fas fa-flag'
+        break
+      case '*':
+        newIcon = 'fas fa-bomb'
+        break
+      case '@':
+        newIcon = 'far fa-flag'
+        break
+      default:
+        break
+    }
     return (
       <li
         onClick={e => this.handleClickCell(rowIndex, columnIndex, e)}
         onContextMenu={e => this.handleClickCell(rowIndex, columnIndex, e)}
         key={columnIndex}
       >
-        {cell}
+        <i className={newIcon} /> {cell}
       </li>
     )
   }
@@ -64,36 +82,22 @@ export class App extends Component {
     if (this.state.state === 'won') {
       header = 'YOU WIN!!!'
     }
-    // switch (cell){
-    // case '_':
-    // return
-    // break;
-    // case 'F':
-    // return 'fas fa-flag' color orange,
-    // break;
-    // case '*':
-    // return 'fas fa-bomb'
-    // break;
-    // case '@':
-    // return 'far fa-flag'
-    // break;
-    // default:
-    // }
 
     return (
       <div>
+        <head>
+          <script
+            src="https://kit.fontawesome.com/956624ffd4.js"
+            crossorigin="anonymous"
+          ></script>
+        </head>
         <div className="bg"></div>
         <div className="bg bg2"></div>
         <div className="bg bg3"></div>
         <div className="content">
-          <head>
-            <script
-              src="https://kit.fontawesome.com/956624ffd4.js"
-              crossorigin="anonymous"
-            ></script>
-          </head>
           <header>
             <h1>{header}</h1>
+            {/* <button>Play Music</button> */}
           </header>
           <section>
             <ul>
@@ -107,12 +111,12 @@ export class App extends Component {
           {/* <div> {minesLeft} </div> */}
           <footer>
             <button onClick={() => this.handleNewGame()}>New Game</button>
-            <select>
+            {/* <select>
               <option>--Difficulty--</option>
               <option>Easy</option>
               <option>Intermediate</option>
               <option>Expert</option>
-            </select>
+            </select> */}
           </footer>
         </div>
       </div>
