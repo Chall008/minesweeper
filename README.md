@@ -1,4 +1,4 @@
-# Minesweeper
+# [Minesweeper](https://minesweeper-corey.netlify.app/)
 <img width="962" alt="Screen Shot 2021-03-04 at 2 50 35 PM" src="https://user-images.githubusercontent.com/76697333/110021630-fc350980-7cf8-11eb-9061-8d7c9345a45d.png">
 
 Here is a video of the animated background and a sample of features: 
